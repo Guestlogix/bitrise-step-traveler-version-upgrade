@@ -2,7 +2,7 @@
 
 # Arguments: $1=module
 find_latest_tag() {
-    pattern="^($MODULE\-|[^a-z]*)v([0-9]+\.[0-9]+\.[0-9]+)\$"
+    pattern="^($MODULE\-)v([0-9]+\.[0-9]+\.[0-9]+)"
     for tag in $(git tag -l --sort=v:refname | tac); do
         if [[ "$tag" =~ $pattern ]]; then
             echo $tag
